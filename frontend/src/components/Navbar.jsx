@@ -1,17 +1,16 @@
 import { useState, useEffect } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
+import { Link, useLocation } from "react-router-dom";
 
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  const location = useLocation();
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
+      setScrolled(window.scrollY > 80);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -22,27 +21,23 @@ function Navbar() {
   const navItems = [
     {
       title: "Home",
-      href: "#home",
+      path: "/",
     },
     {
       title: "About",
-      href: "#about",
+      path: "/about",
     },
     {
       title: "Services",
-      href: "#services",
+      path: "/services",
     },
     {
       title: "Tariff",
-      href: "#tariff",
+      path: "/tariff",
     },
     {
       title: "Packages",
-      href: "#packages",
-    },
-    {
-      title: "Contact",
-      href: "#contact",
+      path: "/packages",
     },
   ];
 
@@ -58,7 +53,7 @@ function Navbar() {
 
         {/* Logo */}
 
-        <a href="#home">
+        <Link to="/">
           <h1
             className={`text-3xl font-serif font-semibold transition duration-300 ${
               scrolled ? "text-gray-900" : "text-white"
@@ -66,7 +61,7 @@ function Navbar() {
           >
             Travel<span className="text-yellow-500">X</span>
           </h1>
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
 
@@ -77,20 +72,35 @@ function Navbar() {
         >
           {navItems.map((item) => (
             <li key={item.title}>
-              <a
-                href={item.href}
-                className="hover:text-yellow-500 transition duration-300"
+              <Link
+                to={item.path}
+                className={`transition duration-300 hover:text-yellow-500 ${
+                  location.pathname === item.path
+                    ? "text-yellow-500"
+                    : ""
+                }`}
               >
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
+
+          {/* Contact scrolls to footer on Home */}
+
+          <li>
+            <a
+              href="/#contact"
+              className="hover:text-yellow-500 transition duration-300"
+            >
+              Contact
+            </a>
+          </li>
         </ul>
 
         {/* Desktop Button */}
 
         <a
-          href="#contact"
+          href="/#contact"
           className="hidden lg:block bg-yellow-500 text-black px-7 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
         >
           Book Ride
@@ -106,7 +116,6 @@ function Navbar() {
         >
           {menuOpen ? <HiX /> : <HiMenuAlt3 />}
         </button>
-
       </div>
 
       {/* Mobile Menu */}
@@ -119,26 +128,32 @@ function Navbar() {
         <div className="bg-white shadow-xl">
 
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.title}
-              href={item.href}
+              to={item.path}
               onClick={() => setMenuOpen(false)}
               className="block px-8 py-5 border-b text-gray-700 hover:text-yellow-500 transition"
             >
               {item.title}
-            </a>
+            </Link>
           ))}
 
-          <div className="p-6">
+          <a
+            href="/#contact"
+            onClick={() => setMenuOpen(false)}
+            className="block px-8 py-5 border-b text-gray-700 hover:text-yellow-500 transition"
+          >
+            Contact
+          </a>
 
+          <div className="p-6">
             <a
-              href="#contact"
+              href="/#contact"
               onClick={() => setMenuOpen(false)}
               className="block text-center bg-yellow-500 text-black py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
             >
               Book Ride
             </a>
-
           </div>
 
         </div>

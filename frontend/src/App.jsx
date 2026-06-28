@@ -1,22 +1,16 @@
-import Home from "./components/Home";
-import About from "./components/About";
-import Services from "./components/Services";
-import StatsSection from "./components/StatsSection";
-import Tariff from "./components/Tariff";
-import Packages from "./components/Packages";
-import Footer from "./components/Footer";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import HomePage from "./pages/HomePage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
-    <>
-      <Home />
-      <About />
-      <Services />
-      <StatsSection />
-      <Tariff />
-      <Packages />
-      <Footer />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
