@@ -1,4 +1,9 @@
-function HeroBanner({ title, subtitle, image }) {
+function HeroBanner({
+  title,
+  subtitle,
+  image,
+  titleClass = "text-white", // ✅ default color is white
+}) {
   return (
     <section
       className="relative h-[55vh] md:h-[65vh] flex items-center justify-center bg-cover bg-center"
@@ -11,7 +16,11 @@ function HeroBanner({ title, subtitle, image }) {
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
-        <h1 className="text-5xl md:text-7xl font-bold text-white">
+        
+        {/* ✅ Title with dynamic color */}
+        <h1
+          className={`text-5xl md:text-7xl font-bold ${titleClass}`}
+        >
           {title}
         </h1>
 

@@ -89,7 +89,7 @@ function Navbar() {
 
           <li>
             <a
-              href="/#contact"
+              href="/contact"
               className="hover:text-yellow-500 transition duration-300"
             >
               Contact

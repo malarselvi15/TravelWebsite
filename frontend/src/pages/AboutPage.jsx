@@ -5,7 +5,7 @@ import StatsSection from "../components/StatsSection";
 import WhyChooseUs from "../components/WhyChooseUs";
 import Footer from "../components/Footer";
 
-import banner from "../assets/about-banner.webp";
+import banner from "../assets/service-banner.png";
 
 function AboutPage() {
   return (
