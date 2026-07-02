@@ -52,7 +52,6 @@ function Navbar() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         {/* Logo */}
-
         <Link to="/">
           <h1
             className={`text-3xl font-serif font-semibold transition duration-300 ${
@@ -64,7 +63,6 @@ function Navbar() {
         </Link>
 
         {/* Desktop Menu */}
-
         <ul
           className={`hidden lg:flex items-center gap-8 uppercase text-sm tracking-wider font-medium transition duration-300 ${
             scrolled ? "text-gray-800" : "text-white"
@@ -85,20 +83,22 @@ function Navbar() {
             </li>
           ))}
 
-          {/* Contact scrolls to footer on Home */}
-
+          {/* Contact */}
           <li>
-            <a
-              href="/contact"
-              className="hover:text-yellow-500 transition duration-300"
+            <Link
+              to="/contact"
+              className={`transition duration-300 hover:text-yellow-500 ${
+                location.pathname === "/contact"
+                  ? "text-yellow-500"
+                  : ""
+              }`}
             >
               Contact
-            </a>
+            </Link>
           </li>
         </ul>
 
         {/* Desktop Button */}
-
         <a
           href="/#contact"
           className="hidden lg:block bg-yellow-500 text-black px-7 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
@@ -107,7 +107,6 @@ function Navbar() {
         </a>
 
         {/* Mobile Button */}
-
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className={`lg:hidden text-3xl transition duration-300 ${
@@ -119,7 +118,6 @@ function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ${
           menuOpen ? "max-h-[500px]" : "max-h-0"
@@ -132,19 +130,28 @@ function Navbar() {
               key={item.title}
               to={item.path}
               onClick={() => setMenuOpen(false)}
-              className="block px-8 py-5 border-b text-gray-700 hover:text-yellow-500 transition"
+              className={`block px-8 py-5 border-b transition ${
+                location.pathname === item.path
+                  ? "text-yellow-500"
+                  : "text-gray-700 hover:text-yellow-500"
+              }`}
             >
               {item.title}
             </Link>
           ))}
 
-          <a
-            href="/#contact"
+          {/* Contact */}
+          <Link
+            to="/contact"
             onClick={() => setMenuOpen(false)}
-            className="block px-8 py-5 border-b text-gray-700 hover:text-yellow-500 transition"
+            className={`block px-8 py-5 border-b transition ${
+              location.pathname === "/contact"
+                ? "text-yellow-500"
+                : "text-gray-700 hover:text-yellow-500"
+            }`}
           >
             Contact
-          </a>
+          </Link>
 
           <div className="p-6">
             <a
