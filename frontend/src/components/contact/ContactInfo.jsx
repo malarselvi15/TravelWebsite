@@ -46,7 +46,8 @@ function ContactInfo() {
               href="tel:+919876543210"
               className="text-gray-600 hover:text-yellow-500 transition"
             >
-              +91 98765 43210
+              +91 90432 94678 <br />
+              +91 90431 94678
             </a>
           </div>
 
@@ -65,7 +66,7 @@ function ContactInfo() {
             </h4>
 
             <a
-              href="https://wa.me/919876543210"
+              href="https://wa.me/919043294678"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-yellow-500 transition"
@@ -92,7 +93,7 @@ function ContactInfo() {
               href="mailto:info@yourtravel.com"
               className="text-gray-600 hover:text-yellow-500 transition"
             >
-              info@yourtravel.com
+              snithes23aug@gmail.com
             </a>
           </div>
 
@@ -146,7 +147,7 @@ function ContactInfo() {
       <div className="px-8 pb-8">
 
         <a
-          href="https://wa.me/919876543210"
+          href="https://wa.me/919043294678"
           target="_blank"
           rel="noopener noreferrer"
           className="w-full flex items-center justify-center gap-3 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-xl transition duration-300"

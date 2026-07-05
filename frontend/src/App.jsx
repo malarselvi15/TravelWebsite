@@ -6,10 +6,12 @@ import ServicesPage from "./pages/ServicesPage";
 import TariffPage from "./pages/TariffPage";
 import PackagesPage from "./pages/PackagesPage";
 import ContactPage from "./pages/ContactPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <BrowserRouter>
+     <ScrollToTop />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
