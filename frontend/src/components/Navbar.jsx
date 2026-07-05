@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
 
-import whiteLogo from "../assets/Wtaxi.png";
+import whiteLogo from "../assets/NY.png";
 import blackLogo from "../assets/Btaxi.png";
 
 function Navbar() {
@@ -64,9 +64,9 @@ function Navbar() {
             src={scrolled ? blackLogo : whiteLogo}
             alt="Dharani Global Travels"
             className="
-              w-[170px]
-              lg:w-[180px]
-              xl:w-[210px]
+              w-[190px]
+              lg:w-[200px]
+              xl:w-[230px]
               h-auto
               object-contain
               transition-all
