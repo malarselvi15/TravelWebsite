@@ -2,6 +2,9 @@ import { useState, useEffect } from "react";
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
 
+import whiteLogo from "../assets/Wtaxi.png";
+import blackLogo from "../assets/Btaxi.png";
+
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -45,26 +48,37 @@ function Navbar() {
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-white/95 backdrop-blur-lg shadow-lg py-4"
-          : "bg-transparent py-6"
+          ? "bg-white/95 backdrop-blur-lg shadow-lg"
+          : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto h-20 px-6 flex items-center justify-between">
 
-        {/* Logo */}
-        <Link to="/">
-          <h1
-            className={`text-3xl font-serif font-semibold transition duration-300 ${
-              scrolled ? "text-gray-900" : "text-white"
-            }`}
-          >
-            Travel<span className="text-yellow-500">X</span>
-          </h1>
+        {/* ================= Logo ================= */}
+
+        <Link
+          to="/"
+          className="flex items-center w-[270px] lg:w-[300px] overflow-hidden -ml-6"
+        >
+          <img
+            src={scrolled ? blackLogo : whiteLogo}
+            alt="Dharani Global Travels"
+            className="
+              w-[170px]
+              lg:w-[180px]
+              xl:w-[210px]
+              h-auto
+              object-contain
+              transition-all
+              duration-300
+            "
+          />
         </Link>
 
-        {/* Desktop Menu */}
+        {/* ================= Desktop Menu ================= */}
+
         <ul
-          className={`hidden lg:flex items-center gap-8 uppercase text-sm tracking-wider font-medium transition duration-300 ${
+          className={`hidden lg:flex items-center gap-8 uppercase text-sm tracking-wider font-medium ${
             scrolled ? "text-gray-800" : "text-white"
           }`}
         >
@@ -72,7 +86,7 @@ function Navbar() {
             <li key={item.title}>
               <Link
                 to={item.path}
-                className={`transition duration-300 hover:text-yellow-500 ${
+                className={`relative transition duration-300 hover:text-yellow-500 ${
                   location.pathname === item.path
                     ? "text-yellow-500"
                     : ""
@@ -83,7 +97,6 @@ function Navbar() {
             </li>
           ))}
 
-          {/* Contact */}
           <li>
             <Link
               to="/contact"
@@ -98,7 +111,8 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* Desktop Button */}
+        {/* ================= Book Ride Button ================= */}
+
         <a
           href="/#contact"
           className="hidden lg:block bg-yellow-500 text-black px-7 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
@@ -106,10 +120,11 @@ function Navbar() {
           Book Ride
         </a>
 
-        {/* Mobile Button */}
+        {/* ================= Mobile Button ================= */}
+
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`lg:hidden text-3xl transition duration-300 ${
+          className={`lg:hidden text-3xl ${
             scrolled ? "text-gray-900" : "text-white"
           }`}
         >
@@ -117,7 +132,8 @@ function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ================= Mobile Menu ================= */}
+
       <div
         className={`lg:hidden overflow-hidden transition-all duration-500 ${
           menuOpen ? "max-h-[500px]" : "max-h-0"
@@ -130,7 +146,7 @@ function Navbar() {
               key={item.title}
               to={item.path}
               onClick={() => setMenuOpen(false)}
-              className={`block px-8 py-5 border-b transition ${
+              className={`block px-8 py-5 border-b ${
                 location.pathname === item.path
                   ? "text-yellow-500"
                   : "text-gray-700 hover:text-yellow-500"
@@ -140,11 +156,10 @@ function Navbar() {
             </Link>
           ))}
 
-          {/* Contact */}
           <Link
             to="/contact"
             onClick={() => setMenuOpen(false)}
-            className={`block px-8 py-5 border-b transition ${
+            className={`block px-8 py-5 border-b ${
               location.pathname === "/contact"
                 ? "text-yellow-500"
                 : "text-gray-700 hover:text-yellow-500"

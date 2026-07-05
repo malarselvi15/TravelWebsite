@@ -21,14 +21,7 @@ function Home() {
 
             <div className="max-w-3xl">
 
-              {/* Top Label */}
-              <div className="mb-8">
-                <div className="w-20 h-[2px] bg-yellow-500 mb-4"></div>
-
-                <p className="uppercase tracking-[5px] text-yellow-400 text-sm font-medium">
-                  Premium Travel Service
-                </p>
-              </div>
+              
 
               {/* Main Heading */}
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
