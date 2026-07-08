@@ -2,23 +2,16 @@ const data = [
   {
     car: "Swift Dzire A/c",
     minKm: 300,
-    rate: 12.5,
+    rate: 14,
     driver: 400,
-    total: "₹4,150",
+    total: "₹4,600",
   },
   {
     car: "Toyota Etios GD",
     minKm: 300,
-    rate: 12.5,
+    rate: 14,
     driver: 400,
-    total: "₹4,150",
-  },
-  {
-    car: "Chevrolet Tavera",
-    minKm: 350,
-    rate: 17,
-    driver: 400,
-    total: "₹6,350",
+    total: "₹4,600",
   },
   {
     car: "Mahindra Xylo",
@@ -72,6 +65,19 @@ const data = [
 ];
 
 function KmTariffTable() {
+  // WhatsApp Number
+  const whatsappNumber = "919043294678";
+
+  const handleWhatsApp = (car) => {
+    const message = `Hello, I'm interested in booking the ${car}. Please share the details.`;
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+
+    window.open(url, "_blank");
+  };
+
   return (
     <div>
       <h2 className="text-2xl font-bold mb-6 text-center">
@@ -79,7 +85,7 @@ function KmTariffTable() {
       </h2>
 
       <div className="overflow-x-auto">
-        <table className="w-full border bg-white shadow-md">
+        <table className="w-full border bg-white shadow-md rounded-lg overflow-hidden">
           <thead className="bg-yellow-400 text-black">
             <tr>
               <th className="p-3">Car</th>
@@ -93,14 +99,17 @@ function KmTariffTable() {
 
           <tbody>
             {data.map((item, i) => (
-              <tr key={i} className="text-center border-b">
-                <td className="p-3">{item.car}</td>
+              <tr key={i} className="text-center border-b hover:bg-gray-50">
+                <td className="p-3 font-medium">{item.car}</td>
                 <td>{item.minKm}</td>
                 <td>₹{item.rate}</td>
                 <td>₹{item.driver}</td>
                 <td className="font-semibold">{item.total}</td>
-                <td>
-                  <button className="bg-green-500 text-white px-3 py-1 rounded">
+                <td className="p-3">
+                  <button
+                    onClick={() => handleWhatsApp(item.car)}
+                    className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded transition"
+                  >
                     WhatsApp Now
                   </button>
                 </td>

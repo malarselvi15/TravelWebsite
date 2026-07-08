@@ -113,12 +113,12 @@ function Navbar() {
 
         {/* ================= Book Ride Button ================= */}
 
-        <a
-          href="/#contact"
-          className="hidden lg:block bg-yellow-500 text-black px-7 py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
-        >
-          Book Ride
-        </a>
+        <Link
+  to="/contact"
+  className="hidden lg:block bg-yellow-500 text-black px-7 py-3 rounded-full font-semibold hover:bg-yellow-400 transition duration-300"
+>
+  Book Ride
+</Link>
 
         {/* ================= Mobile Button ================= */}
 

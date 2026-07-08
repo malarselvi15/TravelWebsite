@@ -28,8 +28,9 @@ function Footer() {
     <footer className="relative bg-[#08111F] overflow-hidden">
 
       {/* Background Glow */}
-      <div className="absolute -top-20 left-0 w-80 h-80 bg-yellow-500/10 rounded-full blur-[120px]" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-[120px]" />
+      <div className="absolute -top-20 left-0 w-80 h-80 bg-yellow-500/10 rounded-full blur-[120px]"></div>
+
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-blue-500/10 rounded-full blur-[120px]"></div>
 
       {/* Top Border */}
       <div className="h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent"></div>
@@ -72,7 +73,9 @@ function Footer() {
               </a>
 
               <a
-                href="#"
+                href="https://wa.me/919043294678"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-11 h-11 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-yellow-500 hover:text-black transition"
               >
                 <FaWhatsapp />
@@ -161,26 +164,54 @@ function Footer() {
             <div className="space-y-5">
 
               <div className="flex items-start gap-4">
+
                 <FaPhoneAlt className="text-yellow-400 mt-1" />
-                <span className="text-gray-400">
-                  +91 90432 94678 <br /> +91 90431 94678
-                </span>
+
+                <div className="text-gray-400 space-y-1">
+
+                  <a
+                    href="tel:+919043294678"
+                    className="hover:text-yellow-400 transition"
+                  >
+                    +91 90432 94678
+                  </a>
+
+                  <br />
+
+                  <a
+                    href="tel:+919043194678"
+                    className="hover:text-yellow-400 transition"
+                  >
+                    +91 90431 94678
+                  </a>
+
+                </div>
+
               </div>
 
               <div className="flex items-start gap-4">
+
                 <FaEnvelope className="text-yellow-400 mt-1" />
-                <span className="text-gray-400">
+
+                <a
+                  href="mailto:snithes23aug@gmail.com"
+                  className="text-gray-400 hover:text-yellow-400 transition break-all"
+                >
                   snithes23aug@gmail.com
-                </span>
+                </a>
+
               </div>
 
               <div className="flex items-start gap-4">
+
                 <FaMapMarkerAlt className="text-yellow-400 mt-1" />
+
                 <span className="text-gray-400">
                   Coimbatore,
                   <br />
                   Tamil Nadu, India
                 </span>
+
               </div>
 
             </div>
@@ -223,15 +254,23 @@ function Footer() {
 
       <div className="border-t border-white/10">
 
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col lg:flex-row justify-between items-center gap-3">
 
-          <p className="text-gray-500 text-sm text-center md:text-left">
-            © 2026 Dharani Global Travels. All Rights Reserved.
+          <p className="text-gray-500 text-sm text-center lg:text-left">
+            © {new Date().getFullYear()} Dharani Global Travels. All Rights Reserved.
           </p>
 
-          <p className="text-gray-500 text-sm mt-3 md:mt-0 text-center">
-            Your Trusted Travel Partner • Safe • Reliable • 24×7 Service
-          </p>
+          <p className="text-gray-500 text-sm text-center relative z-10">
+  Developed by{" "}
+  <a
+  href="https://twintechy.com/"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-yellow-400 hover:text-yellow-300 transition duration-300"
+>
+  Twin Technologies
+</a>
+</p>
 
         </div>
 

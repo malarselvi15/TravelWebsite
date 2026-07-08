@@ -1,32 +1,100 @@
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
+
 import hero from "../assets/hero.avif";
+import ishaDesktop from "../assets/isha.png";
+import ishaMobile from "../assets/isha-mobile.jpg";
 
 function Home() {
+  const navigate = useNavigate();
+
+  // Desktop images
+  const desktopImages = [ishaDesktop, hero];
+
+  // Mobile images
+  const mobileImages = [ishaMobile, hero];
+
+  const [currentImage, setCurrentImage] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImage((prev) => (prev + 1) % desktopImages.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <>
       <Navbar />
 
-      <section
-        className="relative min-h-screen bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${hero})`,
-        }}
-      >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/75"></div>
+      <section className="relative min-h-screen overflow-hidden">
 
-        {/* Hero Content */}
-        <div className="relative z-10 min-h-screen flex items-center">
-          <div className="max-w-7xl mx-auto px-6 w-full">
+        {/* ================= Desktop Slider ================= */}
 
-            <div className="max-w-3xl">
+        {desktopImages.map((image, index) => (
+          <div
+            key={`desktop-${index}`}
+            className={`hidden md:block absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+              currentImage === index ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          />
+        ))}
 
-              
+        {/* ================= Mobile Slider ================= */}
 
-              {/* Main Heading */}
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white leading-tight">
+        {mobileImages.map((image, index) => (
+          <div
+            key={`mobile-${index}`}
+            className={`block md:hidden absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
+              currentImage === index ? "opacity-100" : "opacity-0"
+            }`}
+            style={{
+              backgroundImage: `url(${image})`,
+            }}
+          />
+        ))}
+
+        {/* Overlay */}
+
+        <div className="absolute inset-0 bg-black/65"></div>
+
+        {/* ================= Hero Content ================= */}
+
+        <div className="relative z-10 flex items-center min-h-screen">
+
+          <div className="max-w-7xl mx-auto w-full px-6">
+
+            <div
+              className="
+                max-w-3xl
+                text-center
+                md:text-left
+                pt-20
+                md:pt-0
+              "
+            >
+
+              {/* Heading */}
+
+              <h1
+                className="
+                  font-bold
+                  text-white
+                  leading-tight
+                  text-4xl
+                  sm:text-5xl
+                  md:text-6xl
+                  lg:text-8xl
+                "
+              >
                 Reliable,
                 <br />
+
                 <span className="text-yellow-400">
                   Luxurious
                 </span>{" "}
@@ -34,20 +102,70 @@ function Home() {
               </h1>
 
               {/* Description */}
-              <p className="mt-8 text-lg md:text-xl text-gray-300 leading-relaxed max-w-2xl">
+
+              <p
+                className="
+                  mt-5
+                  text-gray-300
+                  leading-7
+                  md:leading-8
+                  text-[15px]
+                  sm:text-lg
+                  md:text-xl
+                  max-w-xl
+                  mx-auto
+                  md:mx-0
+                "
+              >
                 Experience premium taxi and travel services with
-                professional drivers, luxury vehicles, airport transfers,
-                outstation trips, and comfortable rides for every journey.
+                professional drivers, luxury vehicles, airport
+                transfers, outstation trips and comfortable rides
+                for every journey.
               </p>
 
               {/* Buttons */}
-              <div className="flex flex-wrap gap-5 mt-10">
 
-                <button className="bg-yellow-500 text-black px-8 py-4 rounded-full font-semibold hover:bg-yellow-400 transition duration-300">
+              <div
+                className="
+                  mt-8
+                  flex
+                  flex-row
+                  flex-wrap
+                  justify-center
+                  md:justify-start
+                  gap-4
+                "
+              >
+
+                <button
+                  onClick={() => navigate("/contact")}
+                  className="
+                    bg-yellow-500
+                    hover:bg-yellow-400
+                    text-black
+                    font-semibold
+                    rounded-full
+                    transition
+                    px-6 py-3
+                    md:px-8 md:py-4
+                  "
+                >
                   Book Now
                 </button>
 
-                <button className="border border-white/40 text-white px-8 py-4 rounded-full hover:bg-white hover:text-black transition duration-300">
+                <button
+                  className="
+                    border
+                    border-white/40
+                    text-white
+                    hover:bg-white
+                    hover:text-black
+                    rounded-full
+                    transition
+                    px-6 py-3
+                    md:px-8 md:py-4
+                  "
+                >
                   Explore Fleet →
                 </button>
 
@@ -56,7 +174,9 @@ function Home() {
             </div>
 
           </div>
+
         </div>
+
       </section>
     </>
   );
