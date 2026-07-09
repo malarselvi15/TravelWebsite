@@ -207,9 +207,9 @@ function Footer() {
                 <FaMapMarkerAlt className="text-yellow-400 mt-1" />
 
                 <span className="text-gray-400">
-                  Coimbatore,
+                  Opposite to Railway station, Geetha hall road
                   <br />
-                  Tamil Nadu, India
+                  Gopalapuram-641018 Coimbatore,Tamil Nadu.
                 </span>
 
               </div>
