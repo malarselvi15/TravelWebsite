@@ -154,6 +154,7 @@ function Home() {
                 </button>
 
                 <button
+                  onClick={() => navigate("/contact")}
                   className="
                     border
                     border-white/40

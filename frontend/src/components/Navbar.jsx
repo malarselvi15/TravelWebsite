@@ -169,13 +169,13 @@ function Navbar() {
           </Link>
 
           <div className="p-6">
-            <a
-              href="/#contact"
+            <Link
+              to="/contact"
               onClick={() => setMenuOpen(false)}
               className="block text-center bg-yellow-500 text-black py-3 rounded-full font-semibold hover:bg-yellow-400 transition"
             >
               Book Ride
-            </a>
+            </Link>
           </div>
 
         </div>
