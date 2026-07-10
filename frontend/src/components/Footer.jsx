@@ -202,17 +202,18 @@ function Footer() {
 
               </div>
 
-              <div className="flex items-start gap-4">
+<div className="flex items-start gap-4">
+  <FaMapMarkerAlt className="mt-1 text-yellow-400 flex-shrink-0" />
 
-                <FaMapMarkerAlt className="text-yellow-400 mt-1" />
-
-                <span className="text-gray-400">
-                  Opposite to Railway station, Geetha hall road
-                  <br />
-                  Gopalapuram-641018 Coimbatore,Tamil Nadu.
-                </span>
-
-              </div>
+  <address className="not-italic text-gray-400 leading-8 max-w-[300px]">
+    Opposite to Railway Station,<br />
+    Geetha Hall Road,<br />
+    Gopalapuram,<br />
+    <span className="whitespace-nowrap">
+      Coimbatore - 641018
+    </span>
+  </address>
+</div>
 
             </div>
 
