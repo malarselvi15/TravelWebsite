@@ -3,6 +3,7 @@ import {
   FaSuitcase,
   FaArrowRight,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 import etios from "../assets/etios.avif";
 import dzire from "../assets/dzire.avif";
@@ -15,6 +16,8 @@ import coach from "../assets/coach.jpeg";
 import benz from "../assets/benz.avif";
 
 function Vehicles() {
+
+  const navigate = useNavigate();
   const cars = [
     {
       name: "Toyota Etios",
@@ -142,7 +145,7 @@ function Vehicles() {
                 </div>
 
                 {/* Button */}
-                <button className="mt-8 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-xl transition duration-300 flex items-center justify-center gap-2">
+                <button onClick={() => navigate("/contact")} className="mt-8 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-xl transition duration-300 flex items-center justify-center gap-2">
                   Book Now
                   <FaArrowRight />
                 </button>

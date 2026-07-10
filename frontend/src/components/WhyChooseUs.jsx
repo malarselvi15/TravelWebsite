@@ -6,8 +6,10 @@ import {
   FaHeadset,
   FaMoneyBillWave,
 } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function WhyChooseUs() {
+  const navigate = useNavigate();
   const reasons = [
     {
       icon: <FaTaxi />,
@@ -155,7 +157,7 @@ function WhyChooseUs() {
 
             </div>
 
-            <button className="bg-black text-white px-10 py-4 rounded-full font-semibold hover:bg-gray-900 duration-300 shadow-lg">
+            <button  onClick={() => navigate("/contact")} className="bg-black text-white px-10 py-4 rounded-full font-semibold hover:bg-gray-900 duration-300 shadow-lg">
               Book Your Ride
             </button>
 

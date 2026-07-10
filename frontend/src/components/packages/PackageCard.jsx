@@ -1,6 +1,10 @@
 import { FaCalendarAlt, FaRupeeSign, FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function PackageCard({ pkg }) {
+
+const navigate = useNavigate();
+
   return (
     <div className="bg-white rounded-2xl shadow-md hover:shadow-2xl transition duration-300 overflow-hidden group">
 
@@ -32,7 +36,7 @@ function PackageCard({ pkg }) {
         </p>
 
         {/* Button */}
-        <button className="mt-6 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition">
+        <button  onClick={() => navigate("/contact")} className="mt-6 w-full bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-3 rounded-xl flex items-center justify-center gap-2 transition">
           Book Now
           <FaArrowRight />
         </button>

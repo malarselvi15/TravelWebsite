@@ -4,6 +4,7 @@ import munnar from "../assets/munnar.webp";
 import valparai from "../assets/valparai.jpg";
 import mysore from "../assets/mysore.jpg";
 import wayanad from "../assets/wayanad.avif";
+import { useNavigate } from "react-router-dom";
 
 import {
   FaMapMarkerAlt,
@@ -12,6 +13,7 @@ import {
 } from "react-icons/fa";
 
 function Packages() {
+  const navigate = useNavigate();
   const packages = [
     {
       image: ooty,
@@ -140,7 +142,7 @@ function Packages() {
 
                   </div>
 
-                  <button className="bg-yellow-500 hover:bg-white text-black font-semibold px-6 py-3 rounded-xl transition duration-300 flex items-center gap-2">
+                  <button  onClick={() => navigate("/contact")} className="bg-yellow-500 hover:bg-white text-black font-semibold px-6 py-3 rounded-xl transition duration-300 flex items-center gap-2">
 
                     Book Now
 

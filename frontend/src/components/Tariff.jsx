@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import {
   FaCarSide,
   FaUsers,
@@ -5,7 +6,11 @@ import {
   FaCheckCircle,
 } from "react-icons/fa";
 
+
 function Tariff() {
+
+  const navigate = useNavigate();
+  
   const vehicles = [
     {
       name: "Sedan",
@@ -148,7 +153,7 @@ function Tariff() {
 
                 </div>
 
-                <button className="mt-10 w-full py-4 rounded-xl bg-yellow-500 text-black font-semibold hover:bg-gray-900 hover:text-white transition duration-300">
+                <button  onClick={() => navigate("/contact")} className="mt-10 w-full py-4 rounded-xl bg-yellow-500 text-black font-semibold hover:bg-gray-900 hover:text-white transition duration-300">
 
                   Book Now
 
